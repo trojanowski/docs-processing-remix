@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1691586921037,
+      "tag": "0000_luxuriant_exiles",
+      "breakpoints": true
+    }
+  ]
+}

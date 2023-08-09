@@ -7,7 +7,8 @@
     "jsx": "react-jsx",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "target": "ES2019",
+    "target": "ES2020",
+    "module": "ES2022",
     "strict": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
@@ -17,6 +18,8 @@
     },
 
     // Remix takes care of building everything in `remix build`.
-    "noEmit": true
+    "noEmit": true,
+    // Remove when https://github.com/remix-run/remix/issues/4371 is fixed.
+    "skipLibCheck": true
   }
 }
