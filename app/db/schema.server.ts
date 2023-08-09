@@ -1,9 +1,20 @@
-import { jsonb, pgTable, text, uuid, varchar } from "drizzle-orm/pg-core";
+import {
+  jsonb,
+  pgTable,
+  text,
+  timestamp,
+  uuid,
+  varchar,
+} from "drizzle-orm/pg-core";
 
 export const documents = pgTable("documents", {
   id: uuid("id").primaryKey().defaultRandom(),
   filename: varchar("filename", { length: 255 }).notNull(),
   inputHash: varchar("input_hash", { length: 64 }).notNull(),
+
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
 });
 
 export const documentSources = pgTable("document_sources", {
@@ -14,6 +25,10 @@ export const documentSources = pgTable("document_sources", {
       onUpdate: "restrict",
     }),
   content: text("content").notNull(),
+
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
 });
 
 export const documentResults = pgTable("document_results", {
@@ -24,4 +39,8 @@ export const documentResults = pgTable("document_results", {
       onUpdate: "restrict",
     }),
   result: jsonb("result").notNull(),
+
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
 });
