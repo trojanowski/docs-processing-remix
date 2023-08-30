@@ -15,6 +15,20 @@
       "when": 1691594819746,
       "tag": "0001_oval_loners",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1691595101212,
+      "tag": "0002_fast_firedrake",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1692794702416,
+      "tag": "0003_magical_captain_universe",
+      "breakpoints": true
     }
   ]
 }

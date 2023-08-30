@@ -15,6 +15,8 @@ export const documents = pgTable("documents", {
   createdAt: timestamp("created_at", { withTimezone: true })
     .notNull()
     .defaultNow(),
+  processedAt: timestamp("processed_at", { withTimezone: true }),
+  processingError: text("processing_error"),
 });
 
 export const documentSources = pgTable("document_sources", {
