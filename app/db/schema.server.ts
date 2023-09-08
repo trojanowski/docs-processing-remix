@@ -1,11 +1,31 @@
 import {
-  jsonb,
+  customType,
   pgTable,
   text,
   timestamp,
   uuid,
   varchar,
 } from "drizzle-orm/pg-core";
+
+// A workaround until https://github.com/drizzle-team/drizzle-orm/issues/724
+// is fixed.
+export const customJsonb = <TData>(name: string) =>
+  customType<{ data: TData; driverData: TData }>({
+    dataType() {
+      return "jsonb";
+    },
+    toDriver(val: TData): TData {
+      return val;
+    },
+    fromDriver(value): TData {
+      if (typeof value === "string") {
+        try {
+          return JSON.parse(value) as TData;
+        } catch {}
+      }
+      return value as TData;
+    },
+  })(name);
 
 export const documents = pgTable("documents", {
   id: uuid("id").primaryKey().defaultRandom(),
@@ -40,7 +60,7 @@ export const documentResults = pgTable("document_results", {
       onDelete: "cascade",
       onUpdate: "restrict",
     }),
-  result: jsonb("result").notNull(),
+  result: customJsonb("result").notNull(),
 
   createdAt: timestamp("created_at", { withTimezone: true })
     .notNull()

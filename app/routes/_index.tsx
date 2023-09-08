@@ -46,6 +46,7 @@ function DocumentsTable({ documents }: { documents: Document[] }) {
           <th>ID</th>
           <th>Filename</th>
           <th>Created at</th>
+          <th>Processed at</th>
         </tr>
       </thead>
       <tbody>
@@ -58,6 +59,15 @@ function DocumentsTable({ documents }: { documents: Document[] }) {
             <td>
               <ClientOnly>
                 {() => <TimeAgo date={document.createdAt} />}
+              </ClientOnly>
+            </td>
+            <td>
+              <ClientOnly>
+                {() =>
+                  document.processedAt ? (
+                    <TimeAgo date={document.processedAt} />
+                  ) : null
+                }
               </ClientOnly>
             </td>
           </tr>

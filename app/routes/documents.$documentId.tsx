@@ -35,7 +35,7 @@ export default function Document() {
   return (
     <>
       <header>
-        <Link to="/">Show all documents</Link>
+        <Link to="/">← Show all documents</Link>
       </header>
       <main>
         <h1>Document details</h1>

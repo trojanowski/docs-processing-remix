@@ -22,9 +22,9 @@ const DOCUMENT_TOO_LARGE_MESSAGE = "Document size must be less than 2MB";
 const UploadSchema = z.object({
   document: z
     .instanceof(File, { message: "Document not provided or is incorrect" })
-    // TODO: check if the file is CSV
     .refine((file) => file.size > 0, "Document is required")
-    .refine((file) => file.size <= MAX_SIZE, DOCUMENT_TOO_LARGE_MESSAGE),
+    .refine((file) => file.size <= MAX_SIZE, DOCUMENT_TOO_LARGE_MESSAGE)
+    .refine((file) => file.type === "text/csv", "Document must be a CSV file"),
 });
 
 export const meta: V2_MetaFunction = () => {
@@ -95,7 +95,12 @@ export default function Upload() {
       <Form method="POST" encType="multipart/form-data" {...form.props}>
         <fieldset>
           <label htmlFor={fields.document.id}>Document file</label>
-          <input {...conform.input(fields.document, { type: "file" })} />
+          <input
+            {...conform.input(fields.document, {
+              type: "file",
+            })}
+            accept=".csv"
+          />
           {fields.document.errors?.length ? (
             <>
               {fields.document.errors.map((error, index) => (
