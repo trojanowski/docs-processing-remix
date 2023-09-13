@@ -5,7 +5,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "target": "ES2020",
     "module": "ES2022",
@@ -20,6 +20,9 @@
     // Remix takes care of building everything in `remix build`.
     "noEmit": true,
     // Remove when https://github.com/remix-run/remix/issues/4371 is fixed.
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": [
+      "bun-types" // add Bun global
+    ]
   }
 }

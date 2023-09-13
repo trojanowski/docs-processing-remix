@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@conform-to/react':
     specifier: ^0.8.0
-    version: 0.8.0(react@18.2.0)
+    version: 0.8.0(react@18.3.0-canary-627b7abd6-20230911)
   '@conform-to/zod':
     specifier: ^0.8.0
     version: 0.8.0(@conform-to/dom@0.8.0)(zod@3.22.2)
@@ -22,7 +22,10 @@ dependencies:
     version: 1.19.3
   '@remix-run/react':
     specifier: ^1.19.1
-    version: 1.19.3(react-dom@18.2.0)(react@18.2.0)
+    version: 1.19.3(react-dom@18.3.0-canary-627b7abd6-20230911)(react@18.3.0-canary-627b7abd6-20230911)
+  '@remix-run/server-runtime':
+    specifier: ^1.19.3
+    version: 1.19.3
   compression:
     specifier: ^1.7.4
     version: 1.7.4
@@ -31,7 +34,7 @@ dependencies:
     version: 7.0.3
   drizzle-orm:
     specifier: 0.28.2
-    version: 0.28.2(postgres@3.3.5)
+    version: 0.28.2(bun-types@1.0.1)(postgres@3.3.5)
   express:
     specifier: ^4.18.2
     version: 4.18.2
@@ -51,17 +54,17 @@ dependencies:
     specifier: ^3.3.5
     version: 3.3.5
   react:
-    specifier: ^18.2.0
-    version: 18.2.0
+    specifier: next
+    version: 18.3.0-canary-627b7abd6-20230911
   react-dom:
-    specifier: ^18.2.0
-    version: 18.2.0(react@18.2.0)
+    specifier: next
+    version: 18.3.0-canary-627b7abd6-20230911(react@18.3.0-canary-627b7abd6-20230911)
   react-timeago:
     specifier: ^7.1.0
-    version: 7.1.0(react@18.2.0)
+    version: 7.1.0(react@18.3.0-canary-627b7abd6-20230911)
   remix-utils:
     specifier: ^6.6.0
-    version: 6.6.0(@remix-run/react@1.19.3)(@remix-run/server-runtime@1.19.3)(react@18.2.0)(typescript@5.1.6)(zod@3.22.2)
+    version: 6.6.0(@remix-run/react@1.19.3)(@remix-run/server-runtime@1.19.3)(react@18.3.0-canary-627b7abd6-20230911)(typescript@5.1.6)(zod@3.22.2)
   source-map-support:
     specifier: ^0.5.21
     version: 0.5.21
@@ -75,7 +78,7 @@ devDependencies:
     version: 1.19.3
   '@remix-run/eslint-config':
     specifier: ^1.19.1
-    version: 1.19.3(eslint@8.47.0)(react@18.2.0)(typescript@5.1.6)
+    version: 1.19.3(eslint@8.47.0)(react@18.3.0-canary-627b7abd6-20230911)(typescript@5.1.6)
   '@types/compression':
     specifier: ^1.7.2
     version: 1.7.2
@@ -100,6 +103,9 @@ devDependencies:
   '@types/source-map-support':
     specifier: ^0.5.6
     version: 0.5.7
+  bun-types:
+    specifier: ^1.0.1
+    version: 1.0.1
   chokidar:
     specifier: ^3.5.3
     version: 3.5.3
@@ -1410,13 +1416,13 @@ packages:
     resolution: {integrity: sha512-6IRg+ZtRV2K3GszXWaE0Fs0xO1mY8p9vORtTXazldjODqINcQA49+68yTYLJsnnwKiv1I1kXv538TcLc52K8Dw==}
     dev: false
 
-  /@conform-to/react@0.8.0(react@18.2.0):
+  /@conform-to/react@0.8.0(react@18.3.0-canary-627b7abd6-20230911):
     resolution: {integrity: sha512-8eqZHyT8octeEJ4ywiEFzpoVoQYeEoCTavSZmoGeIhwO2hTuBEgp1Jk3Fa/Dy7lT4E0ZJxE0orZTgHprLcz0Jg==}
     peerDependencies:
       react: '>=16.8'
     dependencies:
       '@conform-to/dom': 0.8.0
-      react: 18.2.0
+      react: 18.3.0-canary-627b7abd6-20230911
     dev: false
 
   /@conform-to/zod@0.8.0(@conform-to/dom@0.8.0)(zod@3.22.2):
@@ -2275,7 +2281,7 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@remix-run/eslint-config@1.19.3(eslint@8.47.0)(react@18.2.0)(typescript@5.1.6):
+  /@remix-run/eslint-config@1.19.3(eslint@8.47.0)(react@18.3.0-canary-627b7abd6-20230911)(typescript@5.1.6):
     resolution: {integrity: sha512-8yvPtsJj1hBKp6ypTTDhHmJ2ftoPmBV1xPPOIqhMLDQ1fwmzocwnkz9RHTeMYkdNSzUuqGnpGaMTHgrT3WfckQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -2303,7 +2309,7 @@ packages:
       eslint-plugin-react: 7.33.2(eslint@8.47.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.47.0)
       eslint-plugin-testing-library: 5.11.1(eslint@8.47.0)(typescript@5.1.6)
-      react: 18.2.0
+      react: 18.3.0-canary-627b7abd6-20230911
       typescript: 5.1.6
     transitivePeerDependencies:
       - eslint-import-resolver-webpack
@@ -2336,7 +2342,7 @@ packages:
       stream-slice: 0.1.2
     dev: false
 
-  /@remix-run/react@1.19.3(react-dom@18.2.0)(react@18.2.0):
+  /@remix-run/react@1.19.3(react-dom@18.3.0-canary-627b7abd6-20230911)(react@18.3.0-canary-627b7abd6-20230911):
     resolution: {integrity: sha512-iP37MZ+oG1n4kv4rX77pKT/knra51lNwKo5tinPPF0SuNJhF3+XjWo5nwEjvisKTXLZ/OHeicinhgX2JHHdDvA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -2344,9 +2350,9 @@ packages:
       react-dom: '>=16.8.0'
     dependencies:
       '@remix-run/router': 1.7.2
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      react-router-dom: 6.14.2(react-dom@18.2.0)(react@18.2.0)
+      react: 18.3.0-canary-627b7abd6-20230911
+      react-dom: 18.3.0-canary-627b7abd6-20230911(react@18.3.0-canary-627b7abd6-20230911)
+      react-router-dom: 6.14.2(react-dom@18.3.0-canary-627b7abd6-20230911)(react@18.3.0-canary-627b7abd6-20230911)
     dev: false
 
   /@remix-run/router@1.7.2:
@@ -3258,6 +3264,9 @@ packages:
       ieee754: 1.2.1
     dev: true
 
+  /bun-types@1.0.1:
+    resolution: {integrity: sha512-7NrXqhMIaNKmWn2dSWEQ50znMZqrN/5Z0NBMXvQTRu/+Y1CvoXRznFy0pnqLe024CeZgVdXoEpARNO1JZLAPGw==}
+
   /bytes@3.0.0:
     resolution: {integrity: sha512-pMhOfFDPiv9t5jjIXkHosWmkSyQbvsgEVNkz0ERHbuLh2T/7j4Mqqpz523Fe8MVY89KC6Sh/QfS2sM+SjgFDcw==}
     engines: {node: '>= 0.8'}
@@ -3820,7 +3829,7 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.28.2(postgres@3.3.5):
+  /drizzle-orm@0.28.2(bun-types@1.0.1)(postgres@3.3.5):
     resolution: {integrity: sha512-QRyuzvpJr7GE6LpvZ/sg2nAKNg2if1uGGkgFTiXn4auuYId//vVJe6HBsDTktfKfcaDGzIYos+/f+PS5EkBmrg==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -3882,6 +3891,7 @@ packages:
       sqlite3:
         optional: true
     dependencies:
+      bun-types: 1.0.1
       postgres: 3.3.5
     dev: false
 
@@ -7051,14 +7061,14 @@ packages:
       iconv-lite: 0.4.24
       unpipe: 1.0.0
 
-  /react-dom@18.2.0(react@18.2.0):
-    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
+  /react-dom@18.3.0-canary-627b7abd6-20230911(react@18.3.0-canary-627b7abd6-20230911):
+    resolution: {integrity: sha512-z4jPj3Jizq28CoX1a+ks969oICeKZ75cNIh12E5qazQEIzZ6Ht+MkJe6sELDPQWrJHi6gdRdLqtu57/b1xNgYg==}
     peerDependencies:
-      react: ^18.2.0
+      react: 18.3.0-canary-627b7abd6-20230911
     dependencies:
       loose-envify: 1.4.0
-      react: 18.2.0
-      scheduler: 0.23.0
+      react: 18.3.0-canary-627b7abd6-20230911
+      scheduler: 0.24.0-canary-627b7abd6-20230911
     dev: false
 
   /react-is@16.13.1:
@@ -7074,7 +7084,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-router-dom@6.14.2(react-dom@18.2.0)(react@18.2.0):
+  /react-router-dom@6.14.2(react-dom@18.3.0-canary-627b7abd6-20230911)(react@18.3.0-canary-627b7abd6-20230911):
     resolution: {integrity: sha512-5pWX0jdKR48XFZBuJqHosX3AAHjRAzygouMTyimnBPOLdY3WjzUSKhus2FVMihUFWzeLebDgr4r8UeQFAct7Bg==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -7082,31 +7092,31 @@ packages:
       react-dom: '>=16.8'
     dependencies:
       '@remix-run/router': 1.7.2
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      react-router: 6.14.2(react@18.2.0)
+      react: 18.3.0-canary-627b7abd6-20230911
+      react-dom: 18.3.0-canary-627b7abd6-20230911(react@18.3.0-canary-627b7abd6-20230911)
+      react-router: 6.14.2(react@18.3.0-canary-627b7abd6-20230911)
     dev: false
 
-  /react-router@6.14.2(react@18.2.0):
+  /react-router@6.14.2(react@18.3.0-canary-627b7abd6-20230911):
     resolution: {integrity: sha512-09Zss2dE2z+T1D03IheqAFtK4UzQyX8nFPWx6jkwdYzGLXd5ie06A6ezS2fO6zJfEb/SpG6UocN2O1hfD+2urQ==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=16.8'
     dependencies:
       '@remix-run/router': 1.7.2
-      react: 18.2.0
+      react: 18.3.0-canary-627b7abd6-20230911
     dev: false
 
-  /react-timeago@7.1.0(react@18.2.0):
+  /react-timeago@7.1.0(react@18.3.0-canary-627b7abd6-20230911):
     resolution: {integrity: sha512-rouF7MiEm55fH791Y8cg+VobIJgx8gtNJ+gjr86R4ZqO1WKPkXiXjdT/lRzrvEkUzsxT1exHqV2V+Zdi114H3A==}
     peerDependencies:
       react: ^16.0.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      react: 18.2.0
+      react: 18.3.0-canary-627b7abd6-20230911
     dev: false
 
-  /react@18.2.0:
-    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
+  /react@18.3.0-canary-627b7abd6-20230911:
+    resolution: {integrity: sha512-CXFXl8G7tzw0qk+bU3E0ZtZL10IbeUzPWoOEQahFbmKLiHyT0Xsq24LsQIjKHVYUc/6Bw4++Z6U9PHzusIy7DA==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
@@ -7253,7 +7263,7 @@ packages:
       unified: 10.1.2
     dev: true
 
-  /remix-utils@6.6.0(@remix-run/react@1.19.3)(@remix-run/server-runtime@1.19.3)(react@18.2.0)(typescript@5.1.6)(zod@3.22.2):
+  /remix-utils@6.6.0(@remix-run/react@1.19.3)(@remix-run/server-runtime@1.19.3)(react@18.3.0-canary-627b7abd6-20230911)(typescript@5.1.6)(zod@3.22.2):
     resolution: {integrity: sha512-4r4ifahU61Aa54m6Yu8B8GTzXyo+9RUzkFZdBNZOErpZ1LUMQ/ng4LeCJX2M6m4obdMjq0ot0pPlnAzeZOSttg==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -7262,11 +7272,11 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       zod: ^3.19.1
     dependencies:
-      '@remix-run/react': 1.19.3(react-dom@18.2.0)(react@18.2.0)
+      '@remix-run/react': 1.19.3(react-dom@18.3.0-canary-627b7abd6-20230911)(react@18.3.0-canary-627b7abd6-20230911)
       '@remix-run/server-runtime': 1.19.3
       intl-parse-accept-language: 1.0.0
       is-ip: 3.1.0
-      react: 18.2.0
+      react: 18.3.0-canary-627b7abd6-20230911
       schema-dts: 1.1.2(typescript@5.1.6)
       type-fest: 2.19.0
       uuid: 8.3.2
@@ -7405,8 +7415,8 @@ packages:
   /safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  /scheduler@0.23.0:
-    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
+  /scheduler@0.24.0-canary-627b7abd6-20230911:
+    resolution: {integrity: sha512-QJzzlskULblqyMwZ+g2JyWHfq2C922CVyYETvg14gLO3I4vrUDh2O16teftjoZkbHPtxcwpupx953C/upDI2mw==}
     dependencies:
       loose-envify: 1.4.0
     dev: false
