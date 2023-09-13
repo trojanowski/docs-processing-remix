@@ -1,8 +1,7 @@
 import type { SerializeFrom, V2_MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
-import TimeAgo from "react-timeago";
-import { ClientOnly } from "remix-utils";
 
+import { TimeAgo } from "~/components/time-ago";
 import { listDocuments } from "~/models/documents.server";
 
 export async function loader() {
@@ -57,18 +56,15 @@ function DocumentsTable({ documents }: { documents: Document[] }) {
             </td>
             <td>{document.filename}</td>
             <td>
-              <ClientOnly>
-                {() => <TimeAgo date={document.createdAt} />}
-              </ClientOnly>
+              <TimeAgo date={document.createdAt} />
             </td>
             <td>
-              <ClientOnly>
-                {() =>
-                  document.processedAt ? (
-                    <TimeAgo date={document.processedAt} />
-                  ) : null
-                }
-              </ClientOnly>
+              {document.processedAt ? (
+                <>
+                  <TimeAgo date={document.processedAt} />{" "}
+                  <a href={`/documents/${document.id}/result`}>→</a>
+                </>
+              ) : null}
             </td>
           </tr>
         ))}

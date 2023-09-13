@@ -5,10 +5,9 @@ import {
   useLoaderData,
   useRouteError,
 } from "@remix-run/react";
-import TimeAgo from "react-timeago";
-import { ClientOnly } from "remix-utils";
 import { z } from "zod";
 
+import { TimeAgo } from "~/components/time-ago";
 import { getDocument } from "~/models/documents.server";
 
 const ParamsSchema = z.object({
@@ -49,9 +48,7 @@ export default function Document() {
             <tr>
               <th>Created at</th>
               <td>
-                <ClientOnly>
-                  {() => <TimeAgo date={document.createdAt} />}
-                </ClientOnly>
+                <TimeAgo date={document.createdAt} />
               </td>
             </tr>
             <tr>
@@ -62,8 +59,19 @@ export default function Document() {
               <th>Input file hash</th>
               <td>{document.inputHash}</td>
             </tr>
+            {document.processedAt ? (
+              <tr>
+                <th>Processed at</th>
+                <td>
+                  <TimeAgo date={document.processedAt} />
+                </td>
+              </tr>
+            ) : null}
           </tbody>
         </table>
+        {document.processedAt ? (
+          <a href={`/documents/${document.id}/result`}>Get result</a>
+        ) : null}
       </main>
     </>
   );

@@ -34,6 +34,8 @@ export async function getDocument(id: string) {
       id: true,
       filename: true,
       createdAt: true,
+      processedAt: true,
+      processingError: true,
       inputHash: true,
     },
   });
