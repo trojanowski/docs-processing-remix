@@ -1,4 +1,4 @@
-import type { SerializeFrom, V2_MetaFunction } from "@remix-run/node";
+import type { SerializeFrom, MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 
 import { TimeAgo } from "~/components/time-ago";
@@ -13,7 +13,7 @@ type Document = SerializeFrom<
   Awaited<ReturnType<typeof loader>>["documents"][0]
 >;
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
   return [{ title: "Document processing with Remix" }];
 };
 

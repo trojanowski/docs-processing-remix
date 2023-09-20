@@ -9,7 +9,7 @@ import {
   unstable_createMemoryUploadHandler,
   unstable_parseMultipartFormData,
   type DataFunctionArgs,
-  type V2_MetaFunction,
+  type MetaFunction,
   MaxPartSizeExceededError,
 } from "@remix-run/node";
 import { Form, useActionData, useNavigation } from "@remix-run/react";
@@ -27,7 +27,7 @@ const UploadSchema = z.object({
     .refine((file) => file.type === "text/csv", "Document must be a CSV file"),
 });
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
   return [{ title: "Document processing with Remix | Upload" }];
 };
 
