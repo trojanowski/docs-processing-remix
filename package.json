@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "remix build",
-    "dev": "dotenv -c development -- remix dev --manual -c \"bun run --watch server-bun.ts\"",
+    "dev": "remix dev --manual -c \"bun run --watch server-bun.ts\"",
     "migrate-dev": "dotenv -c development -- node drizzle-migrate.js",
     "start": "cross-env NODE_ENV=production node ./server.js",
     "typecheck": "tsc"
