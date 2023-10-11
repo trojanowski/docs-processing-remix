@@ -12,6 +12,8 @@ import { RemixServer } from "@remix-run/react";
 import isbot from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
 
+import { runWorker } from "./workers/run-worker.server";
+
 const ABORT_DELAY = 5_000;
 
 export default function handleRequest(
@@ -135,3 +137,6 @@ function handleBrowserRequest(
     setTimeout(abort, ABORT_DELAY);
   });
 }
+
+// Also run Graphile worker in the server process
+runWorker();

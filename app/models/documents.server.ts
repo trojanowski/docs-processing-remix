@@ -1,7 +1,6 @@
 import { createHash } from "node:crypto";
 
 import { desc, eq } from "drizzle-orm";
-import Papa from "papaparse";
 
 import { db } from "~/db/drizzle.server";
 import {
@@ -9,6 +8,7 @@ import {
   documentResults,
   documentSources,
 } from "~/db/schema.server";
+import { addJob } from "./utils.server";
 
 type CreateDocumentInput = {
   content: string;
@@ -53,9 +53,6 @@ export async function getDocumentResult(documentId: string) {
 }
 
 export async function createAndProcessDocument(input: CreateDocumentInput) {
-  // TODO: process the document in a background job
-  const parsedCsv = await parseCsvString(input.content);
-
   return await db.transaction(async (tx) => {
     const document = (
       await tx
@@ -74,29 +71,42 @@ export async function createAndProcessDocument(input: CreateDocumentInput) {
       documentId: document.id,
     });
 
-    await tx.insert(documentResults).values({
-      documentId: document.id,
-      result: parsedCsv,
-    });
+    await addJob(tx, "processDocument", { documentId: document.id });
 
     return document;
   });
 }
 
-function generateHash(content: string): string {
-  return createHash("sha256").update(content).digest("hex");
+export async function getDocumentSourceContent(documentId: string) {
+  const source = await db.query.documentSources.findFirst({
+    where: eq(documentSources.documentId, documentId),
+    columns: {
+      content: true,
+    },
+  });
+
+  return source?.content;
 }
 
-async function parseCsvString(csvString: string) {
-  return new Promise((resolve, reject) => {
-    Papa.parse(csvString, {
-      header: true,
-      complete: (results) => {
-        resolve(results.data);
-      },
-      error: (error: unknown) => {
-        reject(error);
-      },
+export async function storeProcessingResult(
+  documentId: string,
+  result: unknown
+) {
+  await db.transaction(async (tx) => {
+    await tx.insert(documentResults).values({
+      documentId: documentId,
+      result: result,
     });
+
+    await tx
+      .update(documents)
+      .set({
+        processedAt: new Date(),
+      })
+      .where(eq(documents.id, documentId));
   });
+}
+
+function generateHash(content: string): string {
+  return createHash("sha256").update(content).digest("hex");
 }
